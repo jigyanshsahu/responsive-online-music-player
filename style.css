@@ -422,9 +422,12 @@ input[type=range]::-webkit-slider-thumb:hover {
   display:none
 }
   #abc {
-    position: absolute;
-        top: 62px;
-        left: 163px;
+   font-size: xxx-large;
+        position: absolute;
+        top: 32px;
+        left: 157px;
+        height: 51px;
+        width: 165px;
   }
 #cross{
   display: inline;
