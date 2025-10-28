@@ -1,4 +1,12 @@
 // Select all HTML elements
+const c1 = document.getElementById('c1')
+const c2 = document.getElementById('c2')
+const c3 = document.getElementById('c3')
+const c4 = document.getElementById('c4')
+const c5 = document.getElementById('c5')
+const c6 = document.getElementById('c6')
+const c7 = document.getElementById('c7')
+const c8 = document.getElementById('c8')
 const ham = document.getElementById('ham')
 const cross = document.getElementById('cross')
 const audio = document.getElementById('audio');
@@ -9,6 +17,10 @@ const progress = document.getElementById('progress');
 const songName = document.getElementById('song-name');
  const volumeControl = document.getElementById('volume');
  const currentTimeDisplay = document.getElementById('current-time');
+
+
+
+
 
 ham.addEventListener('click', () =>{
   document.querySelector('.left').style.left="0px"; 
@@ -22,7 +34,7 @@ cross.addEventListener('click', () =>{
 // Songs array (from local folder "songs")
 const songs = [
   { name: "Aayi Nai Stree 2 Shraddha ", src: "songs/Aayi Nai  Stree 2  Shraddha Kapoor  Rajkummar Rao  Sachin-Jigar  Pawan  Simran  DivyaAmitabh.mp3" },
-  { name: "Danger - Sidharth M,", src: "songs/Danger - Param Sundari  Sidharth M, Janhvi K.mp3" },
+  { name: "Danger - Sidharth M", src: "songs/Danger - Param Sundari  Sidharth M, Janhvi K.mp3" },
 
   { name: "GURU RANDHAWA - AZUL", src: "songs/GURU RANDHAWA - _AZUL_.mp3" },
   { name: "SAJDA- NAVAAN SANDHU", src: "songs/Sajda - NAVAAN SANDHU SUKHA.mp3" },
@@ -151,3 +163,21 @@ e.addEventListener("click", () => {
 
 // Load first song by default
 loadSong(songIndex);
+const cardButtons = [c1, c2, c3, c4, c5, c6, c7, c8];
+const songIndexes = [0, 2, 6, 5, 1, 3, 4, 7];
+
+cardButtons.forEach((card, i) => {
+  card.addEventListener('click', () => {
+    const newIndex = songIndexes[i];
+
+    // If same song is clicked again → toggle play/pause
+    if (songIndex === newIndex && isPlaying) {
+      pauseSong();
+      return;
+    }
+
+    songIndex = newIndex;
+    loadSong(songIndex);
+    playSong();
+  });
+});
